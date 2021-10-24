@@ -1,0 +1,35 @@
+{
+  "name": "poly-it",
+  "version": "1.0.0",
+  "description": "University project on the subject \"Internet technologies\" (first semester).",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "serve": "nodemon index.js",
+    "test": "npx xo --fix && nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MeShootIn/poly-it.git"
+  },
+  "keywords": [
+    "express",
+    "node.js"
+  ],
+  "author": "MeShootIn",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MeShootIn/poly-it/issues"
+  },
+  "homepage": "https://github.com/MeShootIn/poly-it#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.14",
+    "xo": "^0.45.0"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "knex": "^0.95.11",
+    "pg": "^8.7.1"
+  }
+}
