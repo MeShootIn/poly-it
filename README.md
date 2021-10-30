@@ -2,7 +2,7 @@
 
 University project on the subject \"Internet technologies\" (first semester).
 
-# Интерфейс
+# CLI
 
 * Install all modules:
 ```
@@ -16,10 +16,18 @@ npm run start
 
 * Run in dev-mode:
 ```
-npm run serve
+npm run dev
 ```
 
-* Run in test-mode:
+* Run all migrations and seed all files:
 ```
-npm run test
+npm run db:init
 ```
+
+* Rollback all migrations:
+```
+npm run db:rollback
+```
+
+# Project structure
+* TODO
