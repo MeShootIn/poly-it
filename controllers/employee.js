@@ -27,8 +27,7 @@ class EmployeeController {
 
 	async getEmployeeById(request, response, _next) {
 		try {
-			const parametersId = request.params.id;
-			const id = parametersId.slice(1);
+			const id = request.params.id;
 			const employee = await employeeService.getEmployeeById(id);
 
 			response.status(200).json(employee);

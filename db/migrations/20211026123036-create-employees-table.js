@@ -6,7 +6,7 @@ export function up(knex) {
 			table.string('last_name', 100).notNullable();
 			table.integer('position_id').unsigned().notNullable();
 			table.bigInteger('birthday').notNullable();
-			table.decimal('salary').notNullable();
+			table.decimal('salary').unsigned().notNullable();
 
 			table.foreign('position_id').references('id').inTable('positions');
 		})

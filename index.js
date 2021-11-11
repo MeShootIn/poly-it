@@ -4,7 +4,7 @@ import indexRouter from './routes/index.js';
 import employeesRouter from './routes/employees.js';
 
 const HOST = process.env.HOST || 'localhost';
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8080;
 const app = express();
 
 app.disable('x-powered-by');
