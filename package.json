@@ -4,10 +4,26 @@
   "description": "University project on the subject \"Internet technologies\" (first semester).",
   "main": "index.js",
   "type": "module",
+  "xo": {
+    "ignores": [
+      "db/seeds"
+    ],
+    "rules": {
+      "new-cap": [
+        "error",
+        {
+          "capIsNewExceptions": [
+            "Router"
+          ]
+        }
+      ]
+    }
+  },
   "scripts": {
     "start": "node index.js",
-    "serve": "nodemon index.js",
-    "test": "npx xo --fix && nodemon index.js"
+    "db:init": "npx knex migrate:latest --knexfile ./db/knexfile.js && npx knex seed:run --knexfile ./db/knexfile.js",
+    "db:rollback": "npx knex migrate:rollback --all --knexfile ./db/knexfile.js",
+    "dev": "nodemon index.js"
   },
   "repository": {
     "type": "git",
@@ -29,6 +45,7 @@
   },
   "dependencies": {
     "express": "^4.17.1",
+    "joi": "^17.4.2",
     "knex": "^0.95.11",
     "pg": "^8.7.1"
   }

@@ -1,18 +1,19 @@
+import process from 'node:process';
 import express from 'express';
+import employeesRouter from './routes/employees.js';
 
+const HOST = process.env.HOST || 'localhost';
+const PORT = process.env.PORT || 8080;
 const app = express();
 
-const HOST = 'localhost';
-const PORT = 7000;
+app.disable('x-powered-by');
 
-app.get('/', (request, response) => {
-	response.status(200).type('text/plain');
-	response.send('Root page');
-});
-
-app.use((request, response, _next) => {
-	response.status(404).type('text/plain');
-	response.send('Not found');
+app.use(express.json());
+app.use('/employees', employeesRouter);
+app.use((_request, response, _next) => {
+	response.status(404).json({
+		error: '404 Not Found',
+	});
 });
 
 app.listen(PORT, HOST, () => {
