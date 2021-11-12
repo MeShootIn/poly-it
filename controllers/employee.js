@@ -1,11 +1,11 @@
-import employeeService from '../services/employee.js';
+import {employeeService, ServiceError} from '../services/employee.js';
 
 class EmployeeController {
 	async addEmployee(request, response, _next) {
 		try {
 			const id = await employeeService.createEmployee(request.body);
 
-			response.status(201).json(id);
+			response.status(201).json({id});
 		} catch (error) {
 			response.status(500).json({
 				error: error.message,
@@ -32,9 +32,15 @@ class EmployeeController {
 
 			response.status(200).json(employee);
 		} catch (error) {
-			response.status(500).json({
-				error: error.message,
-			});
+			if (error instanceof ServiceError) {
+				response.status(error.statusCode).json({
+					error: error.message,
+				});
+			} else {
+				response.status(500).json({
+					error: error.message,
+				});
+			}
 		}
 	}
 }
