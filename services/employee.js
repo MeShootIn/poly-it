@@ -16,8 +16,6 @@ export class ServiceError extends Error {
 
 class EmployeeService {
 	async addEmployee(employee) {
-		// Validate employee fields
-
 		return employeeDAO.addEmployee(employee);
 	}
 

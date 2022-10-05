@@ -103,7 +103,6 @@ dist
 
 # vuepress v2.x temp and cache directory
 .temp
-.cache
 
 # Docusaurus cache and generated files
 .docusaurus
@@ -131,4 +130,5 @@ dist
 .pnp.*
 
 
+# My ignore
 /db/knexfile.js

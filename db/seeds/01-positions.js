@@ -1,20 +1,13 @@
+import {POSITIONS, TABLES} from '../constants.js';
+
 export function seed(knex) {
-	return knex('positions')
+	return knex(TABLES.positions)
 		.del()
 		.then(() => knex
-			.insert([
-				{
-					position: 'Junior Software Engineer',
-				},
-				{
-					position: 'Middle Software Engineer',
-				},
-				{
-					position: 'Senior Software Engineer',
-				},
-			])
-			.into('positions')
+			.insert(POSITIONS.map(position => ({position})))
+			.into(TABLES.positions)
 			.catch(error => {
 				console.error(error);
-			}));
+			}),
+		);
 }
